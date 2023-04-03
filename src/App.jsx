@@ -1,10 +1,28 @@
-import Calendar from "./components/Calendar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./pages/main";
+import A from "./pages/a";
+import B from "./pages/b";
+import C from "./pages/c";
+import NotFound from "./pages/NotFound";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-200 flex justify-center items-center">
-      <Calendar />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="a" element={<A />} />
+          <Route path="b" element={<B />} />
+          <Route path="c" element={<C />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </div>
+      ;
+    </BrowserRouter>
   );
 }
 
